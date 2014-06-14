@@ -20,14 +20,13 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
 
 \begin{abstract}
     Within the past several years, the study of exoplanets has flourished due to advances in technologies and methodologies, as well as increased public awareness.
     While many of the techniques for exoplanet discovery require several layers of indirection, since the traces of distant planets are incredibly faint, some, such as
     the transit method used by the Kepler mission, are relatively straighforward, both in principle and practice. This is especially true of the transit method since the
     basic principle is that of the fairly familiar eclipse. A basic understanding of signal processing, high-school statistics, and around 200 lines of Python code
-    proved sufficient to determine exoplanet system parameters to within 10\% error.
+    proved sufficient to determine exoplanet system parameters to within 7\% error.
 \end{abstract}
 
 \section{Purpose}
@@ -35,7 +34,7 @@
 The purpose of this experiment was to calculate the parameters of exoplanet systems from Kepler data and compare the determined values to the accepted
 values for the planets. Standard practices and methods such as linear detrending and the box-fitting least squares algorithm were used to calculate the
 period and radius of exoplanets using light curves from the NASA Exoplanet Archive, which were then compared to the accepted values from the Extrasolar
-Planets Encyclopedia.\autocite{exoplanetEncyclopedia, exoplanetArchive}.
+Planets Encyclopedia.\autocite{exoplanetEncyclopedia, exoplanetArchive}
 
 \subsection{Hypothesis}
 If Kepler light curves for single-planet systems are analyzed using a straighforward implementation of basic exoplanet dectection methods, then
