@@ -12,7 +12,13 @@ the amount of shift is related to radial velocity by the equation
 where \(\lambda_{shift}\) is the shift in the location of the absorbtion lines and
 \(\lambda_{rest}\) is the rest wavelength of the spectal line.\autocite{dopplerSpectroscopy}
 
-TODO: Include image
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/spec_sun_arcturus}
+	\caption{This image from Michael Richmond demonstrates the Doppler shift in spectra. \autocite{dopplerSpectroscopy}
+	The shift is \( \lambda_{shift} = \lambda_{Arcturus} - \lambda{Sun} = \SI{882.55}{\nano\meter} - \SI{882.4}{\nano\meter} =  \SI{0.15}{\nano\meter}\).
+	From that shift, \( v_{radial} = \frac{ \SI{0.15}{\nano\meter} }{ \SI{882.4}{\nano\meter} } \times \SI{3e8}{\kilo\meter\per\second} = \SI{50}{\kilo\meter\per\second} \)}
+\end{figure}
 
 While somewhat newer than the radial velocity method, the transit method has gained popularity in recent years
 with the advent of missions such as Kepler, launched in 2009. The basic idea is to look for the slight drop
@@ -35,8 +41,6 @@ can be related to the radius of the planet:
 This requires that the radius of the star, \(R_*\), is known in advance, but other methods can be used to determine this.
 The BLS (Box-fitting Least Squares) algorithm is often used to search for transits, since it detects periodic differences
 between two levels, i.e. the normal apparent brightness of the star and the decreased brighness during a transit.\autocite{bls}
-
-TODO: picture of a light curve
 
 For the purposes of this experiment, the transit method was chosen. This was largely due to the greater availability of data from the Kepler project,
 but the transit method is also slightly simpler conceptually, which made it more suitable for a relatively straightforward implementation.
