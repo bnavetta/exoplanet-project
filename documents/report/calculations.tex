@@ -8,8 +8,8 @@ of high and low values to subsets of the time series and minimize a function of 
 \subsection{Epoch}
 
 The epoch here refers to the time of the first transit in the light curve.
-One of the values comupted by the BLS implementation used is the bin index of the start of the transit, \(in1\). Dividing this by the number of bins
-\(nb\) (an input to the algorithm) yields the phase of the start of the transit. The epoch is then computed using this phase, the period, and the time
+One of the values comupted by the BLS implementation used is the bin index of the start of the transit, in1. Dividing this by the number of bins
+nb (an input to the algorithm) yields the phase of the start of the transit. The epoch is then computed using this phase, the period, and the time
 of the first data point in the light curve.
 
 \begin{align*}
@@ -40,7 +40,7 @@ The duration of the transit is calculated from the period and \(q\), the fractio
 
 \subsection{Ingress and Egress}
 
-The ingress and egress times of the \textit{n} th transit can be calculated from the epoch, period, and duration. A margin of \SI{0.2}{\bjd} is added on either side.
+The ingress and egress times of the \textit{n}th transit can be calculated from the epoch, period, and duration. A margin of \SI{0.2}{\bjd} is added on either side.
 
 For the \nth{3} transit,
 \begin{alignat*}{2}
