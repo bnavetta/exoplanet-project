@@ -2,6 +2,24 @@
 
 \begin{itemize}
     \item At least one light curve for each planet of interest. Pre-prepared light curves were downloaded from the NASA Exoplanet Archive, but could
-        also be generated from telescope imagery. \autocite{exoplanetArchive}.
-    \item 
+        also be generated from telescope imagery. \autocite{exoplanetArchive}
+    \item Software to analyze the light curves. The implementation developed for this experiment has been published on \href{https://github.com/roguePanda/exoplanet-project}{GitHub}.
 \end{itemize}
+
+TODO: setup diagram
+
+\section{Procedure}
+
+\begin{enumerate}
+    \item Light curves for Kepler-6b and Kepler-12b were obtained from the \href{http://exoplanetarchive.ipac.caltech.edu/}{NASA Exopanet Archive}.
+    \item The light curves were cleaned by removing all non-finite data points.
+    \item The flux in each light curve was normalized by dividing by the median to aid in detrending and periodogram generation.
+    \item The light curves were detrended by using least-squares regression to remove global trends. \autocite{untrendy}
+    \item A periodogram of each light curve was generated using the box-fitting least squares algorithm. \autocite{bls, pythonBls}
+    \item The best period was determined from the periodogram by locating the highest peak.
+    \item The transit epoch, ingresses, and egresses were determined from the light curve and period.
+    \item The transit depth was calculated using the calculated list of transits.
+    \item The estimated planetary radius was calculated from the transit depth and the stellar radius as listed in the Extrasolar Planets Encyclopedia. \autocite{exoplanetEncyclopedia}
+\end{enumerate}
+
+% TODO (in separate file): calculate ingress/egress, mention that period,epoch from BLS algo, calculate transit depth + radius
