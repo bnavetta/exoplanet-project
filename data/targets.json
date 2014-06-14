@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Kepler-6",
+        "kepler_id": 10874614,
+        "simbad": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Kepler-6",
+        "curves": [
+            "http://exoplanetarchive.ipac.caltech.edu/data/ETSS/Kepler/000/294/95/kplr010874614-2009131105131_llc.fits"
+        ],
+        "comments": "Clearly-visible transit, works well"
+    },
+    {
+        "name": "Kepler-32",
+        "kepler_id": 9787239,
+        "simbad": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Kepler-32",
+        "info_page": "http://kepler.nasa.gov/Mission/discoveries/kepler32b/",
+        "curves": [
+            "http://exoplanetarchive.ipac.caltech.edu/data/ETSS/Kepler/000/312/16/kplr009787239-2009166043257_llc.fits",
+            "http://exoplanetarchive.ipac.caltech.edu/data/ETSS/Kepler/000/344/28/kplr009787239-2009259160929_llc.fits"
+        ],
+        "comments": "I've been having trouble with this. The discovery paper indicates that other planets in the system may have an effect."
+    },
+    {
+        "name": "Kepler-12",
+        "kepler_id": 11804465,
+        "simbad": "http://simbad.u-strasbg.fr/simbad/sim-id?Ident=Kepler-12",
+        "info_page": "http://kepler.nasa.gov/Mission/discoveries/kepler12b/",
+        "curves": [
+            
+        ]
+    }
+]

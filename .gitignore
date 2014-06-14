@@ -1,6 +1,5 @@
 __pycache__/
 *.pyc
-lib/
 
-*.fits
-*.fits.gz
+old-stuff/
+build/

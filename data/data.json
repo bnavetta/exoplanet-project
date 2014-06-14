@@ -1,0 +1,16 @@
+{
+    "Kepler-6b": {
+        "star_kic": 10874614,
+        "star_params": {
+            "radius": 1.391
+        },
+        "light_curve": "kplr010874614-2009131105131_llc.fits"
+    },
+    "Kepler-12b": {
+        "star_kic": 11804465,
+        "star_params": {
+            "radius": 1.483
+        },
+        "light_curve": "kplr011804465-2013011073258_llc.fits"
+    }
+}

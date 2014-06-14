@@ -1,0 +1,23 @@
+Uncited (yet)
+
+http://www.planetary.org/explore/space-topics/exoplanets/radial-velocity.html
+http://msemac.redwoods.edu/~darnold/math55/deproj/sp09/geoffbrian/diffeqbeamer.pdf
+http://spiff.rit.edu/classes/phys301/lectures/doppler/doppler.html
+
+http://astro.wku.edu/strolger/UNITS.txt
+
+Equations for star/planet measurements from light curve
+http://seagerexoplanets.mit.edu/ftp/Papers/Seager2003.pdf
+http://wesscholar.wesleyan.edu/cgi/viewcontent.cgi?article=1418&context=etd_hon_theses&sei-redir=1&referer=http%3A%2F%2Fwww.google.com%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3Dlight%2520curve%2520detect%2520planet%26source%3Dweb%26cd%3D1%26ved%3D0CCIQFjAA%26url%3Dhttp%253A%252F%252Fwesscholar.wesleyan.edu%252Fcgi%252Fviewcontent.cgi%253Farticle%253D1418%2526context%253Detd_hon_theses%26ei%3DhpCQU5z3K6PJsQTpjYKICg%26usg%3DAFQjCNE-eiK5H0wYBFLPRoMtwV-inxqWvg%26sig2%3DSvV_w7aZ7Ds7BV_Wak59jw%26bvm%3Dbv.68235269%2Cd.cWc%26cad%3Drja%26surl%3D1%26safe%3Dactive#search=%22light%20curve%20detect%20planet%22
+
+FFT overview: http://astro.berkeley.edu/~jrg/ngst/fft/fft.html
+DFT overview: http://astro.berkeley.edu/~jrg/ngst/fft/dft.html
+http://astro.berkeley.edu/~jrg/ngst/fft/fseries.html
+
+Also: http://docs.scipy.org/doc/scipy/reference/tutorial/fftpack.html
+
+Variable Star Astronomy - course on stars w/ chapter on light curve analysis
+http://www.aavso.org/variable-star-astronomy
+
+List of Kepler discoveries:
+http://kepler.nasa.gov/Mission/discoveries/
