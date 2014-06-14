@@ -1,0 +1,39 @@
+\section{Data}
+
+The base time unit for Kepler data is Barycentric Julian Date (\si{\bjd}), which corrects for the motion of the Kepler satellite around
+the solar system's center of mass, and the light curve files contain further offset time. \autocite{keplerManual}
+
+% planet name, period, period percent err, radius, radius percent err
+\addvbuffer[12pt]{\begin{tabu} to \linewidth {X[l]*{6}{X[r]}}
+\toprule
+& \multicolumn{3}{c}{Period} & \multicolumn{3}{c}{Radius} \\
+\cmidrule(r){2-4} \cmidrule(r){5-7}
+Planet & Calculated [\si{\day}] & Accepted [\si{\day}] & Percent Error [\si{\percent}] & Calculated [\si{\jupiterRadius}] & Accepted [\si{\jupiterRadius}] & Percent Error [\si{\percent}] \\
+\midrule
+((* for planet in all_planets *))
+((( planet.target.name ))) & \num{((( planet.target.periodogram.best_period|sigfigs(4) )))} & \num{((( planet.target.truth.period|sigfigs(4) )))} & \SI{((( planet.period_err|sigfigs(4) )))}{\percent} & \num{((( planet.planet_radius|sigfigs(4) )))} & \num{((( planet.target.truth.radius|sigfigs(4) )))} & \SI{((( planet.radius_err|sigfigs(4) )))}{\percent} \\
+((* endfor *))
+\bottomrule
+\end{tabu}}
+
+
+((* for planet in all_planets *))
+% \subsection{((( planet.target.name )))}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{((( planet.light_curve_image )))}
+    \caption{This is the cleaned, normalized, and detrended light curve data
+    obtained from Kepler. The blue and green dots represent the ingresses and
+    egresses of transits.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{((( planet.periodogram_image )))}
+    \caption{The periodogram was generated from the data used in the above light curve. The green dot marks the highest peak, which corresponds to
+    the best period detected. Periodograms plot power against frequency, not time, so the x-axis units correspond to inverse days and the values
+    are the reciprocal of the period. Note that power is on a logarithmic scale.}
+\end{figure}
+
+((* endfor *))

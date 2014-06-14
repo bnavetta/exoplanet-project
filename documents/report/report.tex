@@ -1,10 +1,21 @@
 \documentclass{report}
 
-\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[labelformat=empty]{caption}
+\usepackage{float}
 \usepackage{fullpage}
-\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{tabu}
+\usepackage{verbatimbox}
 
-\input{common.tex}
+% \input{common.tex}
+((* include 'common.tex' *))
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\thefigure}{}
+\renewcommand{\thetable}{}
 
 \begin{document}
 
@@ -31,9 +42,15 @@ If Kepler light curves for single-planet systems are analyzed using a straighfor
 the calculated parameters should correspond to the accepted values determined by more advanced transit and radial-velocity analysis.
 
 \section{Background}
-\input{background.tex}
+% \input{background.tex}
+((* include 'background.tex' *))
 
-\input{procedure.tex}
+% \input{procedure.tex}
+((* include 'procedure.tex' *))
+
+((* include 'calculations.tex' *))
+
+((* include 'data.tex' *))
 
 % Hello, ((( name|escape_tex )))!
 

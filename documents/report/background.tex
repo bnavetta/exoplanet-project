@@ -22,15 +22,16 @@ and noise in the data is often a problem.\autocite{jplMethods} One advantage of 
 many stars can be observed at once, increasing the likelihood of detecting a planet, and Kepler
 has detected more than 1,000 exoplanet candidates.\autocite{jplMethods}
 
-To detect exoplantets using the transit method, a light curve plotting flux, or changes in intensity of the
+To detect exoplanets using the transit method, a light curve plotting flux, or changes in intensity of the
 light from the star, against time is generated from telescope images. A periodogram, which plots spectral density against frequency,
 is then used to determine the period of the exoplanet. On the periodogram, peaks appear at frequencies corresponding
 to the period. Once the period has been determined, further analysis of the light curve can determine the ingresses
 and egresses of the transit. The transit depth, a measure of the difference in flux during and outside of a transit,
 can be related to the radius of the planet:
-\begin{displaymath}
-	\delta F = \frac{F_{no transit} - F_{transit}}{F_{no transit}} = (\frac{R_p}{R_*})^2
-\end{displaymath}
+\begin{align*}
+	\Delta F &= \frac{ F_{\text{no transit}} - F_{\text{transit}} }{ F_{\text{no transit}} } \\
+	&= (\frac{R_p}{R_*})^2
+\end{align*}
 This requires that the radius of the star, \(R_*\), is known in advance, but other methods can be used to determine this.
 The BLS (Box-fitting Least Squares) algorithm is often used to search for transits, since it detects periodic differences
 between two levels, i.e. the normal apparent brightness of the star and the decreased brighness during a transit.\autocite{bls}

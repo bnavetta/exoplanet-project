@@ -1,0 +1,83 @@
+\section{Calculations}
+
+\subsection{Period}
+
+The period is determined by the BLS algorithm, which does not express well as a calculation. The basic idea behind BLS is to fit a step function
+of high and low values to subsets of the time series and minimize a function of the weighted data points and the high and low values. \autocite{bls}
+
+\subsection{Epoch}
+
+The epoch here refers to the time of the first transit in the light curve.
+One of the values comupted by the BLS implementation used is the bin index of the start of the transit, \(in1\). Dividing this by the number of bins
+\(nb\) (an input to the algorithm) yields the phase of the start of the transit. The epoch is then computed using this phase, the period, and the time
+of the first data point in the light curve.
+
+\begin{align*}
+    \text{phase1} &= \text{in1} / \text{nb} \\
+    \text{epoch} &= t_0 + \text{phase1} \times \text{period}
+\end{align*}
+
+\begin{alignat*}{2}
+    \text{in1} &=  ((( kepler6b.target.periodogram.values.in1|sigfigs ))) \\
+    \text{period} &= ((( kepler6b.target.periodogram.best_period|sigfigs ))) \\
+    \text{nb} &= ((( kepler6b.target.periodogram.values.nb|sigfigs ))) \\
+    t_0 &= ((( kepler6b.target.light_curve.time[0]|sigfigs ))) \\
+    \text{phase1} &= ((( kepler6b.target.periodogram.values.in1|sigfigs ))) / ((( kepler6b.target.periodogram.values.nb|sigfigs )))
+        & &= ((( kepler6b.target.periodogram.values.phase1|sigfigs ))) \\
+    \text{epoch} &= ((( kepler6b.target.light_curve.time[0]|sigfigs ))) + ((( kepler6b.target.periodogram.values.phase1|sigfigs ))) \times ((( kepler6b.target.periodogram.best_period|sigfigs )))
+        & &= \SI{((( kepler6b.target.periodogram.epoch|sigfigs )))}{\bjd}
+\end{alignat*}
+
+\subsection{Duration}
+
+The duration of the transit is calculated from the period and \(q\), the fractional transit duration.
+
+\begin{alignat*}{2}
+    \text{duration} &= \text{period} \times q \\
+    \text{duration} &= ((( kepler6b.target.periodogram.best_period|sigfigs ))) \times ((( kepler6b.target.periodogram.values.q|sigfigs )))
+        & &= \SI{((( kepler6b.target.periodogram.duration|sigfigs )))}{\bjd}
+\end{alignat*}
+
+\subsection{Ingress and Egress}
+
+The ingress and egress times of the \textit{n} th transit can be calculated from the epoch, period, and duration. A margin of \SI{0.2}{\bjd} is added on either side.
+
+For the \nth{3} transit,
+\begin{alignat*}{2}
+    \text{ingress} &= \text{epoch} + \text{period} \times (n - 1) - 0.2 \\
+    \text{ingress} &= ((( kepler6b.target.periodogram.epoch|sigfigs ))) + ((( kepler6b.target.periodogram.best_period|sigfigs ))) \times 2 - 0.2
+        & &= \SI{((( kepler6b.target.periodogram.ingresses[2]|sigfigs(5) )))}{\bjd} \\
+    \text{egress} &= \text{epoch} + \text{period} \times (n - 1) + \text{duration} + 0.2 \\
+    \text{egress} &= ((( kepler6b.target.periodogram.epoch|sigfigs ))) + ((( kepler6b.target.periodogram.best_period|sigfigs ))) \times 2 + ((( kepler6b.target.periodogram.duration|sigfigs ))) + 0.2
+        & &= \SI{((( kepler6b.target.periodogram.egresses[2]|sigfigs(5) )))}{\bjd}
+\end{alignat*}
+
+\subsection{Transit Depth}
+
+The transit depth is defined in terms of the flux during and outside of a transit. Here the flux during transit is defined as the average of the
+flux values at the bottom of each transit and the flux outside of transit is defined as the average of the flux values not contained in a transit.
+
+\begin{alignat*}{2}
+    \Delta F &= \frac{ F_{\text{no transit}} - F_{\text{transit}} }{ F_{\text{no transit}} } \\
+    \Delta F &= \frac{((( kepler6b.f_no_transit|sigfigs ))) - ((( kepler6b.f_transit|sigfigs )))}{((( kepler6b.f_no_transit|sigfigs )))}
+        & &= ((( kepler6b.transit_depth|sigfigs )))
+\end{alignat*}
+% the transit depth is unitless since its flux / flux
+
+\subsection{Planet Radius}
+
+Usually, the radii of stars are given in terms of solar radii, where \(1 R_{\astrosun} = \SI{6.955e8}{\meter}\), and planetary
+radii are given in Jupiter radii, where \(1 R_J = \SI{7.1492e7}{\meter}\). However, radii are converted to meters when performing calculations
+involving the two.
+
+\begin{alignat*}{2}
+    \Delta F &= (\frac{R_p}{R_*})^2 \\
+    R_p &= \sqrt{\Delta F} \times R_* \\
+\end{alignat*}
+
+\begin{alignat*}{2}
+    \Delta F &= ((( kepler6b.transit_depth|sigfigs ))) \\
+    R_* &= \SI{((( kepler6b.target.star.radius|sigfigs )))}{\solarRadius} &= \SI{((( kepler6b.target.star.radius_meters|sigfigs )))}{\meter} \\
+    R_p &= \sqrt{((( kepler6b.transit_depth|sigfigs )))} \times \num{((( kepler6b.target.star.radius_meters|sigfigs )))} \\
+    R_p &= \SI{((( kepler6b.planet_radius_meters|sigfigs )))}{\meter} &= \SI{((( kepler6b.planet_radius|sigfigs )))}{\jupiterRadius}
+\end{alignat*}

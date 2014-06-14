@@ -1,3 +1,15 @@
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{nth}
+\usepackage{siunitx}
+\usepackage{wasysym}
+
+\sisetup{per-mode=symbol}
+\DeclareSIUnit[number-unit-product = \text{ }]\bjd{BJD}
+\DeclareSIUnit\electron{\ensuremath{\mathrm{e^-}}}
+\DeclareSIUnit[number-unit-product = \text{ }]\solarRadius{R_{\astrosun}}
+\DeclareSIUnit[number-unit-product = \text{ }]\jupiterRadius{R_J}
+
 \usepackage[backend=biber, style=phys]{biblatex}
 % Probably use phys, ieee, maybe find something for turabian
 \addbibresource{sources.bib}

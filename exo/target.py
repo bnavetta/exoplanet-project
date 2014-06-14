@@ -8,6 +8,7 @@ import pyfits
 import untrendy
 
 from exo.common import data_dir
+from exo.params import solar_radius
 from exo.periodogram import Periodogram
 
 def load_targets(filename):
@@ -28,11 +29,13 @@ def load_targets(filename):
 # The light curves contain time offset from BJD, but we don't really care about specific times
 
 class Target(object):
-    __slots__ = ["client", "name", "star", "light_curve", "periodogram"]
+    __slots__ = ["client", "var_name", "name", "star", "light_curve", "periodogram", "truth"]
 
     def __init__(self, name, params):
         self.client = kplr.API()
         self.name = name
+        self.var_name = params["var_name"]
+        self.truth = params["truth"]
         # self.star = self.client.star(params["star_kic"])
         self.star = Star(params["star_kic"], params["star_params"])
         with pyfits.open(os.path.join(data_dir, params["light_curve"])) as fits:
@@ -78,5 +81,9 @@ class Star(object):
     __slots__ = ["radius", "kepler_id"]
 
     def __init__(self, kepler_id, params):
-        self.kepler_id = kepler_id
-        self.radius = params["radius"]
+        self.kepler_id = int(kepler_id)
+        self.radius = float(params["radius"])
+
+    @property
+    def radius_meters(self):
+        return self.radius * solar_radius

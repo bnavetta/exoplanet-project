@@ -1,15 +1,25 @@
 {
     "Kepler-6b": {
+        "var_name": "kepler6b",
         "star_kic": 10874614,
         "star_params": {
             "radius": 1.391
         },
+        "truth": {
+            "period": 3.234723,
+            "radius": 1.323
+        },
         "light_curve": "kplr010874614-2009131105131_llc.fits"
     },
     "Kepler-12b": {
+        "var_name": "kepler12b",
         "star_kic": 11804465,
         "star_params": {
             "radius": 1.483
+        },
+        "truth": {
+            "period": 4.4379637,
+            "radius": 1.695
         },
         "light_curve": "kplr011804465-2013011073258_llc.fits"
     }

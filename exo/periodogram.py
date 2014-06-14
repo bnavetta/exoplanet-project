@@ -6,7 +6,7 @@ import bls
 class Periodogram(object):
     __slots__ = ["target", "f", "power", \
         "best_period", "best_power", "q", \
-        "all_periods", "duration", "epoch", "ingresses", "egresses", "approx_duration"]
+        "all_periods", "duration", "epoch", "ingresses", "egresses", "approx_duration", "values"]
 
     def __init__(self, target):
         self.target = target
@@ -66,30 +66,10 @@ class Periodogram(object):
         self.egresses = egresses
         self.approx_duration = egresses[0] - ingresses[0]
 
-
-# def transit_depth(time, flux, ingresses, egresses):
-#     transit_fluxes = []
-#     for ingress, egress in zip(ingresses, egresses):
-#         this_transit_fluxes = flux[time > ingress]
-#         this_transit_fluxes = flux[time < egress]
-#         transit_fluxes.append(np.min(this_transit_fluxes))
-#     not_transit_fluxes = np.setdiff1d(flux, transit_fluxes)
-#
-#     f_transit = np.mean(transit_fluxes)
-#     f_no_transit = np.mean(not_transit_fluxes)
-#     return (f_no_transit - f_transit) / f_no_transit
-
-    # transits = zip(ingresses, egresses)
-    # flux_no_transit = np.empty(1)
-    # flux_transit = np.empty(1)
-    # for t, f in zip(time, flux):
-    #     in_transit = False
-    #     for transit in transits:
-    #         if t > transit[0] and t < transit[1]:
-    #             in_transit = True
-    #     if in_transit:
-    #         flux_transit = np.append(flux_transit, f)
-    #     else:
-    #         flux_no_transit = np.append(flux_no_transit, f)
-    # delta_flux = (np.mean(flux_no_transit) - np.mean(flux_transit)) / np.mean(flux_no_transit)
-    # return delta_flux
+        # Stuff only useful for sample calculation
+        self.values = {
+            'in1': in1,
+            'phase1': phase1,
+            'nb': nb,
+            'q': q
+        }

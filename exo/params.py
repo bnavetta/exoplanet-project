@@ -5,20 +5,30 @@ import scipy
 # See sections 3.2 and 3.3 especially
 
 solar_radius = 6.955e8
-jupiter_radius = 69911e3
+# jupiter_radius = 69911e3
+jupiter_radius = 7.1492e7
 
-def transit_depth(target):
+def transit_depth(target, full=False):
     """
     delta_f = (f_no_transit - f_transit) / f_no_transit
     """
     transit_fluxes = []
+    to_remove = []
     for ingress, egress in zip(target.periodogram.ingresses, target.periodogram.egresses):
         this_transit_fluxes = target.light_curve.flux[(target.light_curve.time > ingress) & (target.light_curve.time < egress)]
-        transit_fluxes.append(np.min(this_transit_fluxes))
-    not_transit_fluxes = np.setdiff1d(target.light_curve.flux, transit_fluxes)
+        # TODO: WTF?
+        if len(this_transit_fluxes):
+            transit_fluxes.append(np.min(this_transit_fluxes))
+            to_remove.extend(this_transit_fluxes)
+    # not_transit_fluxes = np.setdiff1d(target.light_curve.flux, transit_fluxes)
+    not_transit_fluxes = np.setdiff1d(target.light_curve.flux, to_remove)
     f_transit = np.mean(transit_fluxes)
     f_no_transit = np.mean(not_transit_fluxes)
-    return (f_no_transit - f_transit) / f_no_transit
+    delta_f = (f_no_transit - f_transit) / f_no_transit
+    if full:
+        return delta_f, f_no_transit, f_transit
+    else:
+        return delta_f
 
 def planet_radius(target, transit_depth):
     """
