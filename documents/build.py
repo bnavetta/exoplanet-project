@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
 import os
-import sys
+import shutil
 import subprocess
+import sys
 
 documents_dir = os.path.realpath(os.path.dirname(__file__))
 root_dir = os.path.normpath(os.path.join(documents_dir, '..'))
@@ -25,6 +26,7 @@ for document in ('report', 'presentation'):
     input_dir = os.path.join(documents_dir, document)
     template = jinja_env.get_template('{0}/{0}.tex'.format(document))
     output_dir = os.path.join(build_dir, document)
+    shutil.rmtree(output_dir)
     mkdir_p(output_dir)
     with open(os.path.join(output_dir, document + '.tex'), 'w') as generated_document:
         generated_document.write(template.render(context))
