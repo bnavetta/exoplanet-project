@@ -1,11 +1,20 @@
-\documentclass{report}
+\documentclass[12pt,oneside]{memoir}
+
+\OnehalfSpacing
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+\usepackage{mathptmx}
+
+\usepackage[margin=1in]{geometry}
 
 \usepackage{booktabs}
+\usepackage{tabu}
+
 \usepackage[labelformat=empty]{caption}
 \usepackage{float}
-\usepackage{fullpage}
 \usepackage{graphicx}
-\usepackage{tabu}
 \usepackage{verbatimbox}
 
 % \input{common.tex}
@@ -17,15 +26,26 @@
 \renewcommand{\thefigure}{}
 \renewcommand{\thetable}{}
 
+\pagestyle{empty}
+\pagenumbering{gobble}
+
 \begin{document}
 
-\maketitle
+\begin{flushleft}
+    \theauthor
+    \par
+    \thedate
+\end{flushleft}
+\par
+\begin{center}
+    \large\textbf{\thetitle}
+\end{center}
+\par
 
 \begin{abstract}
     Within the past several years, the study of exoplanets has flourished due to advances in technologies and methodologies, as well as increased public awareness.
     While many of the techniques for exoplanet discovery require several layers of indirection, since the traces of distant planets are incredibly faint, some, such as
-    the transit method used by the Kepler mission, are relatively straighforward, both in principle and practice. This is especially true of the transit method since the
-    basic principle is that of the fairly familiar eclipse. A basic understanding of signal processing, high-school statistics, and around 200 lines of Python code
+    the transit method used by the Kepler mission, are relatively straightforward, both in principle and practice. A basic understanding of signal processing, high-school statistics, and around 200 lines of Python code
     proved sufficient to determine exoplanet system parameters to within 7\% error.
 \end{abstract}
 
