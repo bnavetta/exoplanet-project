@@ -26,6 +26,7 @@ def make(gen_dir):
         ctx['f_no_transit'] = f_no_transit
         ctx['f_transit'] = f_transit
         ctx['planet_radius'] = exo.planet_radius(target, transit_depth)
+        # ctx['planet_radius'] = exo.planet_radius(target, target.periodogram.depth)
         ctx['planet_radius_meters'] = ctx['planet_radius'] * exo.jupiter_radius
 
         exo.plots.periodogram(target)

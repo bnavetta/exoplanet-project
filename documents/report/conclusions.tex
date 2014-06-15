@@ -1,0 +1,44 @@
+\section{Conclusion}
+
+The well-defined peaks on the periodograms show that transits were clearly detected. Kepler-6b in particular shows a single
+best peak with a period of \SI{((( kepler6b.target.periodogram.best_period|sigfigs(4) )))}{\day} and a
+power of \SI{((( kepler6b.target.periodogram.best_power|sigfigs(4) )))}{ (\electron\per\second) \tothe{2} \per \day\tothe{-1} }. While Kepler 12b
+shows three peaks that appear to be of roughly equal height, the highest corresponded to the true period of the planet, since the detected
+period of \SI{((( kepler12b.target.periodogram.best_period|sigfigs(4) )))}{\day} is within \SI{1}{\percent} of the actual period, \SI{((( kepler12b.target.truth.period|sigfigs(4) )))}{\day}.
+Since the Kepler-12 system has no other known exoplanets, the other peaks may be noise in the data. \autocite{exoplanetArchive}.
+In addition, the systems chosen have clearly visible transits on the light curve. Since both Kepler-6b and Kepler-12b have short periods,
+the long-cadence light curves from the Kepler mission contain multiple transits. Longer transits are more U-shaped, with flat bottoms while the
+planet blocks its parent star, but at the scale of light curves with multiple transits, the short-duration transits of Kepler-6b and Kepler-12b
+appear as vertical lines.
+
+It was to be expected that periodic patterns of some kind would be detected. Kepler-6b and Kepler-12b were among the first planets
+detected by the Kepler mission, since both have clearly-visible transits. In addition, the Kepler-6 and Kepler-12 systems each contain
+only one known exoplanet, so there was less risk of interference in the light curve from another transit. \autocite{exoplanetArchive}. What is
+more important is that the system parameters determined corresponded so closely to the accepted values determined by the Kepler mission
+and, in most cases, confirmed by the radial-velocity method. The periods were especially close to the actual values, within \SI{1}{\percent} for
+each planet. The determined Kepler-6b period of \SI{((( kepler6b.target.periodogram.best_period|sigfigs(4) )))}{\day} was slightly closer, with a percent error of
+\SI{((( kepler6b.period_err|sigfigs(4) )))}{\percent} compared to \SI{((( kepler12b.period_err|sigfigs(4) )))}{\percent} for Kepler-12b. The planetary
+radii deviated more, by \SI{((( kepler6b.radius_err|sigfigs(4) )))}{\percent} and \SI{((( kepler12b.radius_err|sigfigs(4) )))} for Kepler-6b and Kepler-12b
+respectively. This may be due to the greater amount of intermediate calculations to determine the radius; the period was determined directly from the light curve
+as part of the periodogram, while the radius required both the transit depth, which itself depended on information derived from the periodogram, and the radius
+of the star.
+
+\section{Possible Sources of Error}
+
+Looking at the light curve for Kepler-12b, there is a gap at around \SI{1417}{\bjd}, indicating that the Kepler telescope was not recording during
+this time period. Based on the positions of the other transits, it seems plausible that there would have been at least one more transit in that gap.
+The missing transit, or transits, could have altered the periodogram results, which is used to calculate both the orbital period and the radius
+of the planet. The available data predicted transits just before and after the gap, so a single transit at the center of the gap instead of those
+transits could have lengthened the orbital period determined by the periodogram. Since the transit depth was computed from averages, an additional transit
+that deviated noticeably from the others could have significantly altered the transit depth, and thus the planetary radius.
+
+All of the calculations were limited to a single light curve per planet. Since the curves are rarely sequential, an attempt to stitch multiple data
+sets together would have left gaps in the combined light curve, which could have altered results as previously mentioned. However, individual light
+curves may have been too small to capture some phenomena. The Kepler-6b light curve in particular spans only about 10 days, so the effect of anything
+with a longer period would be missed. This could include other exoplanets, although there are no other known exoplanets around Kepler-6. \autocite{exoplanetEncyclopedia}.
+
+Kepler light curves contain two sets of flux data. The first, SAP flux, is taken directly from the aperture photometry, while the second is processed
+by the pre-search data conditioning (PDC) system. \autocite{keplerManual}. The PDC system makes corrections to the raw flux to remove known
+systematic errors that could interfere with transit searches, and is tuned to detect Earth-sized planets. \autocite{pdc}. Since the purpose of this experiment depended on transit detection, the
+PDC flux data was used. However, the PDC system can hide certain non-transit patterns, including some on particularly long or short timescales. \autocite{pdc}
+Although the PDC system is intended to improve the quality of transit detection, it could partially alter the detected transits.

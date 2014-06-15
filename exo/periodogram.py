@@ -5,7 +5,7 @@ import bls
 
 class Periodogram(object):
     __slots__ = ["target", "f", "power", \
-        "best_period", "best_power", "q", \
+        "best_period", "best_power", "q", "depth", \
         "all_periods", "duration", "epoch", "ingresses", "egresses", "approx_duration", "values"]
 
     def __init__(self, target):
@@ -33,7 +33,7 @@ class Periodogram(object):
         self.power = results[0]
         self.best_period = results[1]
         self.best_power = results[2]
-        depth = results[3]
+        self.depth = results[3]
         q = results[4]
         in1 = results[5]
         in2 = results[6]

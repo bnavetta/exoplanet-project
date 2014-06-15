@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+from exo.documents.util import significant_figures
+
 def light_curve(target):
     fig = plt.figure()
 
@@ -14,7 +16,7 @@ def light_curve(target):
     gress_fluxes = np.empty_like(target.periodogram.ingresses); gress_fluxes.fill(np.mean(target.light_curve.flux))
     plt.scatter(target.periodogram.ingresses, gress_fluxes, s=30, c='c')
     plt.scatter(target.periodogram.egresses, gress_fluxes, s=30, c='g')
-
+    
     return fig
 
 # Given time in s and amplitude in V, the frequency is Hz and the power is V^2/Hz
@@ -29,4 +31,5 @@ def periodogram(target):
     plt.yscale("log")
     plt.plot(target.periodogram.f, target.periodogram.power, 'b')
     plt.scatter([1/target.periodogram.best_period], [target.periodogram.best_power], s=50, c="g")
+
     return fig

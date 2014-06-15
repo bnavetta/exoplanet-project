@@ -33,7 +33,9 @@ Planet & Calculated [\si{\day}] & Accepted [\si{\day}] & Percent Error [\si{\per
     \includegraphics[width=0.6\textwidth]{((( planet.periodogram_image )))}
     \caption{The periodogram was generated from the data used in the above light curve. The green dot marks the highest peak, which corresponds to
     the best period detected. Periodograms plot power against frequency, not time, so the x-axis units correspond to inverse days and the values
-    are the reciprocal of the period. Note that power is on a logarithmic scale.}
+    are the reciprocal of the period. The best period detected was \SI{((( planet.target.periodogram.best_period|sigfigs(4) )))}{\day}, with a power of
+    \SI{((( planet.target.periodogram.best_power|sigfigs )))}{ (\electron\per\second) \tothe{2} \per{\day\tothe{-1}} }.
+    Note that power is on a logarithmic scale.}
 \end{figure}
 
 ((* endfor *))

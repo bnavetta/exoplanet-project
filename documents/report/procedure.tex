@@ -16,8 +16,10 @@ TODO: setup diagram
     \item The flux in each light curve was normalized by dividing by the median to aid in detrending and periodogram generation.
     \item The light curves were detrended by using least-squares regression to remove global trends. \autocite{untrendy}
     \item A periodogram of each light curve was generated using the box-fitting least squares algorithm. \autocite{bls, pythonBls}
+    \item The periodogram and light curve were plotted so that transits and periods could be observed.
     \item The best period was determined from the periodogram by locating the highest peak.
     \item The transit epoch, ingresses, and egresses were determined from the light curve and period.
     \item The transit depth was calculated using the calculated list of transits.
     \item The estimated planetary radius was calculated from the transit depth and the stellar radius as listed in the Extrasolar Planets Encyclopedia. \autocite{exoplanetEncyclopedia}
+    \item The percent errors between observed and actual values of the radius and period were calculated.
 \end{enumerate}
