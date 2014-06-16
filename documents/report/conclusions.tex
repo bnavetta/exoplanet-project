@@ -1,15 +1,15 @@
 \section{Conclusion}
 
 The well-defined peaks on the periodograms show that transits were clearly detected. Kepler-6b in particular shows a single
-best peak with a period of \SI{((( kepler6b.target.periodogram.best_period|sigfigs(4) )))}{\day} and a
-power of \SI{((( kepler6b.target.periodogram.best_power|sigfigs(4) )))}{ (\electron\per\second) \tothe{2} \per \day\tothe{-1} }. While Kepler 12b
+best peak with a period of \SI{((( kepler6b.target.periodogram.best_period|sigfigs(4) )))}{\day} and a power of
+\SI{((( kepler6b.target.periodogram.best_power|sigfigs(4) )))}{ (\electron\per\second) \tothe{2} \per \day\tothe{-1} }. While Kepler 12b
 shows three peaks that appear to be of roughly equal height, the highest corresponded to the true period of the planet, since the detected
 period of \SI{((( kepler12b.target.periodogram.best_period|sigfigs(4) )))}{\day} is within \SI{1}{\percent} of the actual period, \SI{((( kepler12b.target.truth.period|sigfigs(4) )))}{\day}.
 Since the Kepler-12 system has no other known exoplanets, the other peaks may be noise in the data. \autocite{exoplanetArchive}.
 In addition, the systems chosen have clearly visible transits on the light curve. Since both Kepler-6b and Kepler-12b have short periods,
-the long-cadence light curves from the Kepler mission contain multiple transits. Longer transits are more U-shaped, with flat bottoms while the
-planet blocks its parent star, but at the scale of light curves with multiple transits, the short-duration transits of Kepler-6b and Kepler-12b
-appear as vertical lines.
+the long-cadence light curves from the Kepler mission contain multiple transits. Longer transits and transits on light curves folded around the period
+are more U-shaped, with flat bottoms while the planet blocks its parent star, but at the scale of light curves with multiple transits,
+the short-duration transits of Kepler-6b and Kepler-12b appear as vertical lines.
 
 It was to be expected that periodic patterns of some kind would be detected. Kepler-6b and Kepler-12b were among the first planets
 detected by the Kepler mission, since both have clearly-visible transits. In addition, the Kepler-6 and Kepler-12 systems each contain
@@ -42,3 +42,12 @@ by the pre-search data conditioning (PDC) system. \autocite{keplerManual}. The P
 systematic errors that could interfere with transit searches, and is tuned to detect Earth-sized planets. \autocite{pdc}. Since the purpose of this experiment depended on transit detection, the
 PDC flux data was used. However, the PDC system can hide certain non-transit patterns, including some on particularly long or short timescales. \autocite{pdc}
 Although the PDC system is intended to improve the quality of transit detection, it could partially alter the detected transits.
+
+\section{Further Areas of Investigation}
+
+While the methods used here worked well for simple single-planet systems like Kepler-12 or Kepler-6, they are untested for more complicated systems
+like Kepler-32, which has several planets orbiting the star. Therefore, it is worth investigating how well models that work for a single exoplanet
+apply to multi-planet systems. Similarly, transits were clearly visible on the selected light curves. In many real-world cases, transits are not as
+clearly visible, so one area to investigate would be performance on noisier data. The original intention of this experiment was to compare the results
+of the transit and radial velocity methods, but sufficient spectrum data for a radial velocity time series was unavailable. With access to more spectra,
+a model based on radial velocity could be compared to this transit model.
