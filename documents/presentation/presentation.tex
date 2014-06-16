@@ -60,9 +60,11 @@
         \item Motion leads to Doppler shift in light
         \item Absorption lines shifted from reference values
     \end{itemize}
-    \begin{align*}<4->
-        \lambda_{shift} = \lambda_{rest} \times \frac{v_{radial}}{c}
-    \end{align*}
+    \only<4->{
+        \begin{align*}
+            \lambda_{shift} = \lambda_{rest} \times \frac{v_{radial}}{c}
+        \end{align*}
+    }
 \end{frame}
 
 \begin{frame}
@@ -246,6 +248,18 @@ Use Kepler-12b to show difficulties - gaps, less-uniform transit depths, multipl
         \note{Kepler 12b around 1417 days - could mess with periodogram, transit depth since I could be missing a transit}
         \item Single light curve
         \note{Can't really stitch together curves since they aren't sequential, but that means less data, could miss something - e.g. Kepler-6 curve only about 10 days}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Further Areas}
+    \begin{itemize}[<+->]
+        \item Multi-planet systems
+        \note{I want to see if this could pick up periods for multiple planets, e.g. Kepler-32}
+        \item Noisier transits
+        \note{The transits for the planets I studied (and Kepler-5b in the picture) are fairly visible. What happens if the transits aren't as clear}
+        \item Radial velocity comparison
+        \note{Wanted to do this initially. There are some parameters, like period, that both can predict. If I do both, how well do the results agree?}
     \end{itemize}
 \end{frame}
 
