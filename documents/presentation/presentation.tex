@@ -1,11 +1,6 @@
-\documentclass[xetex,mathserif,serif]{beamer}
+% \documentclass[xetex,mathserif,serif]{beamer}
 
 \usepackage{tabu}
-
-\input{common.tex}
-
-\usetheme{Pittsburgh}
-\usecolortheme{crane}
 
 \AtBeginSection[]
 {
@@ -13,8 +8,6 @@
         \sectionpage
     \end{frame}
 }
-
-% \setbeameroption{show notes}
 
 \begin{document}
 
@@ -111,7 +104,19 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{TODO: Setup}
+    \frametitle{Setup}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/750603main_Ball_Kepler_A8468_275_lg}
+        \caption{The Kepler Satellite \autocite{keplerReactionWheelUpdate}}
+    \end{figure}
+    \note{
+        Survey a single region of the galaxy for several years
+        Photometer - array of CCDs, sole instrument
+        pixels -> 30-min long or 1-min short cadence
+        on Earth, calibrate + convert to light curves or target pixel files
+
+    }
 \end{frame}
 
 \begin{frame}
@@ -263,10 +268,12 @@ Use Kepler-12b to show difficulties - gaps, less-uniform transit depths, multipl
     \end{itemize}
 \end{frame}
 
+\ifbeamer@inpresentation
 \begin{frame}[allowframebreaks]
     \frametitle{Bibliography}
     \nocite{*}
     \printbibliography
 \end{frame}
+\fi
 
 \end{document}
